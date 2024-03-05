@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Route, RouterModule } from '@angular/router';
 import { ErrorPageComponent } from './shared/error-page/error-page.component';
+import { HeroeComponent } from './heroes/pages/heroe/heroe.component';
 
 const routes: Route[] = [
   {
