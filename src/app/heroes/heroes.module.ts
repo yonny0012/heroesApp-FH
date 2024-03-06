@@ -13,6 +13,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { ListComponent } from './pages/list/list.component';
 import { SearchComponent } from './pages/search/search.component';
 import { ImagenPipe } from './pipes/imagen.pipe';
+import { ConfirmComponent } from './components/confirm/confirm.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ImagenPipe } from './pipes/imagen.pipe';
     ListComponent,
     SearchComponent,
     ImagenPipe,
+    ConfirmComponent,
   ],
   imports: [
     CommonModule,

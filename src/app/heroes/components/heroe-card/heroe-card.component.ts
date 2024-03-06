@@ -9,6 +9,10 @@ import { Heroe } from '../../interfaces/heroe.interface';
       mat-card {
         margin-top: 20px;
       }
+      button{
+        margin-left: 5px;
+        margin-right: 5px;
+      }
     `,
   ],
 })

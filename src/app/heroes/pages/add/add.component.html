@@ -1,1 +1,77 @@
-<p>add works!</p>
+<h1>
+  {{ isRouteAdd ? "Nuevo" : "Etitar" }} Héroe
+  <small>{{ heroe.superhero | titlecase }}</small>
+</h1>
+
+<div fxLayout="row" fxLayout.xs="column" fxLayoutGap="40px">
+  <div fxFlex="50" fxLayout="column">
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20px">
+      <mat-form-field appearance="outline" fxFlex="100">
+        <mat-label>Super Héroe</mat-label>
+        <input matInput type="text" [(ngModel)]="heroe.superhero" required />
+      </mat-form-field>
+      <mat-form-field appearance="outline" fxFlex="100">
+        <mat-label>Alter Ego</mat-label>
+        <input matInput type="text" [(ngModel)]="heroe.alter_ego" required />
+      </mat-form-field>
+    </div>
+    <mat-form-field appearance="outline" fxFlex="100">
+      <mat-label>Primera Aparicón</mat-label>
+      <input
+        matInput
+        type="text"
+        [(ngModel)]="heroe.first_appearance"
+        required
+      />
+    </mat-form-field>
+    <mat-form-field appearance="outline" fxFlex="100">
+      <mat-label>Personajes</mat-label>
+      <input matInput type="text" [(ngModel)]="heroe.characters" required />
+    </mat-form-field>
+    <mat-form-field appearance="outline" fxFlex="100">
+      <mat-label>Creador</mat-label>
+      <mat-select [(ngModel)]="heroe.publisher">
+        <mat-option
+          *ngFor="let publisher of publishers"
+          [value]="publisher.id"
+          required
+          >{{ publisher.desc }}</mat-option
+        >
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline" fxFlex="100">
+      <mat-label>Foto Url</mat-label>
+      <input matInput type="url" [(ngModel)]="heroe.alt_imag" required />
+    </mat-form-field>
+    <br />
+    <div>
+      <ng-container
+        *ngIf="isRouteAdd; then SaveButton ; else EditButton"
+      ></ng-container>
+      <ng-template #EditButton>
+        <button fxFlex="50" mat-raised-button color="primary" (click)="save()">
+          <mat-icon>edit</mat-icon>
+          Actualizar
+        </button>
+        <button
+          fxFlex="50"
+          mat-raised-button
+          color="warn"
+          (click)="deleteHeroe()"
+        >
+          <mat-icon>remove</mat-icon>
+          Eliminar
+        </button>
+      </ng-template>
+      <ng-template #SaveButton>
+        <button fxFlex="100" mat-raised-button color="primary" (click)="save()">
+          <mat-icon>save</mat-icon>
+          Guardar
+        </button>
+      </ng-template>
+    </div>
+  </div>
+  <div fxFlex="50">
+    <img [src]="heroe | imagen" alt="{{ heroe.superhero }}-imagen" />
+  </div>
+</div>
